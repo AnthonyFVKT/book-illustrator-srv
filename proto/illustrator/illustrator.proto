@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package illustrator_service;
+
+option go_package = "proto/illustrator";
+
+service IllustratorService{
+  rpc Create(CreateRequest) returns (CreateResponse);
+}
+
+message Illustrated{
+  string text = 1;
+  string imageURL = 2;
+}
+
+message CreateRequest{
+  string text = 1;
+}
+
+message CreateResponse{
+  repeated Illustrated illustrated = 1;
+}
+
