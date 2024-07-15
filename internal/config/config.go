@@ -18,6 +18,7 @@ func New() (*Config, error) {
 
 type Config struct {
 	ServerAddress string `env:"SERVER_ADDRESS,notEmpty"`
+	MJKey         string `env:"MJ_KEY,notEmpty"`
 	IllustratorConfig
 }
 

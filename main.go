@@ -12,17 +12,13 @@ import (
 	"google.golang.org/grpc"
 )
 
-const (
-	mjKey = "d7c73d8cc6a8341dc21198c78b663942ea7c207e2b9d12b95c71f1ca2d943c8c"
-)
-
 func main() {
 	cfg, err := config.New()
 	if err != nil {
 		log.Fatalf("error while reading config: %v", err)
 	}
 
-	mjClient := client.NewClient(mjKey)
+	mjClient := client.NewClient(cfg.MJKey)
 	illustrator := service.NewIllustrator(mjClient)
 	textProcessor := service.NewProcessor(cfg.GroupMaxSentences)
 
